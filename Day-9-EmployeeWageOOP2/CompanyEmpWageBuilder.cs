@@ -9,15 +9,16 @@ namespace Day_9_EmployeeWageOOP2
     internal class CompanyEmpWageBuilder
     {
 
+        //init instance Variable
         public const int IS_Parttime = 1;
         public const int IS_Fulltime = 2;
         public const int EmpRatePerHr = 20;
         public void EmpCheck(string Company)
-        {
+        { //local variable
             int emphr = 0;
 
 
-            Random r = new Random();
+            Random r = new Random(); //TO generate random no
             int empcheck = r.Next(0, 3);
 
             switch (empcheck)
@@ -37,11 +38,13 @@ namespace Day_9_EmployeeWageOOP2
                     Console.WriteLine(">> Employee of " + Company + " is Absent....\n");
                     break;
             }
-            int Dailywage = EmpRatePerHr * emphr;
+            int Dailywage = EmpRatePerHr * emphr; //to Calculate Daily Employee wage
 
 
             Console.WriteLine("Employee Wage of a day to " + Company + " company for current Employee is :- " + Dailywage + "\n");
         }
+
+
 
 
 
