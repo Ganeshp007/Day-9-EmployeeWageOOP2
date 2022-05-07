@@ -8,6 +8,9 @@ namespace Day_9_EmployeeWageOOP2
 {
     internal interface IEmpOps
     {
+
+        public int EmpWage(string Company, int totalEmpHr);
+
         public void EmpCheck(string Compnay);
     }
 }
