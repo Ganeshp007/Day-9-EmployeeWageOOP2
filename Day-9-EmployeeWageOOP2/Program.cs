@@ -2,11 +2,18 @@
 
 using Day_9_EmployeeWageOOP2;
 
+Console.WriteLine("----- Welcome to Employee Management System -----\n");
 
-Console.WriteLine("----- Welcome to Employee Wage Monitoring System -----\n");
+CompanyEmpWageBuilder.CalEmpHr("Dmart", 20, 100);//CompnayNAme,MaxWorkingDays,MaxWorkingHr
+CompanyEmpWageBuilder.TotalWage(20);//Emp_RAte_Hr
 
-CompanyEmpWageBuilder obj = new CompanyEmpWageBuilder();
-obj.EmpCheck("Zomato");
-obj.EmpCheck("Swiggi");
 
+Console.WriteLine("\nPress Enter to Continue...\n");
+Console.ReadKey();
+
+
+CompanyEmpWageBuilder.CalEmpHr("Amazon", 20, 100);
+CompanyEmpWageBuilder.TotalWage(40);
+
+Console.WriteLine("\nPress enter to Exit....");
 Console.ReadKey();

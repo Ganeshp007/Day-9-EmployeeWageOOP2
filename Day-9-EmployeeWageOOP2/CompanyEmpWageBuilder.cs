@@ -11,65 +11,53 @@ namespace Day_9_EmployeeWageOOP2
 
 
 
-        //init instance Variable
-        public const int IS_Parttime = 1;
-        public const int IS_Fulltime = 2;
-        public const int Max_Working_Days = 20;
-        public const int Max_Working_Hr = 100;
-        public const int EmpRatePerHr = 20;
-        public void EmpCheck(string Company)
+        public const int Is_Fulltime = 1;
+        public const int Is_Parttime = 2;
+
+        public static int TotalEmpwage = 0;
+        public static int TotalEmpHr = 0;
+
+        public static int CalEmpHr(String CmpName, int MaxWorkingDays, int MaxWorkingHr)
         {
-            //local variable
-            int emphr = 0, totaldays = 0, TotalEmpHr = 0;
+            int Emp_Hr = 0, TotalWorkingDays = 0;
 
-            Console.WriteLine(">> Records of " + Company + " Company :\n");
-
-            while (totaldays < Max_Working_Days && TotalEmpHr <= Max_Working_Hr)
-
+            while (TotalEmpHr <= MaxWorkingHr && TotalWorkingDays < MaxWorkingDays)
             {
-                Random r = new Random(); //TO generate random no
-                int empcheck = r.Next(0, 3);
+                Random obj = new Random();
+                int empcheck = obj.Next(0, 3); //it will generate 0 and 1 only bcoz its limit is n-1 ie 2-1=1
 
-                switch (empcheck)
+                if (empcheck == Is_Fulltime)
                 {
-                    case IS_Fulltime:
-
-                        emphr = 8;
-                        break;
-
-                    case IS_Parttime:
-
-                        emphr = 4;
-                        break;
-
-                    default:
-
-                        emphr = 0;
-                        break;
+                    //Console.WriteLine("Employee is Fulltime\n");
+                    Emp_Hr = 8;
+                }
+                else if (empcheck == Is_Parttime)
+                {
+                    // Console.WriteLine("Employee is Parttime\n");
+                    Emp_Hr = 4;
+                }
+                else
+                {
+                    Emp_Hr = 0;
+                    //Console.WriteLine("Employee is Absent\n");
                 }
 
-                TotalEmpHr += emphr; //to Calculate total Emp Hours 
-                totaldays++;
-
-
-                Console.WriteLine("Day:- " + totaldays + " Employee Worked For :- " + emphr + "Hr\n");
-               
+                TotalEmpHr += Emp_Hr;
+                TotalWorkingDays++;
 
             }
-
-            Console.WriteLine(">> Total Employee Wage for " + Company + " company is :- " + EmpWage(Company, TotalEmpHr) + "\n");
-
-
+            Console.WriteLine("\n>> Company Name Of Employee:- " + CmpName);
+            Console.WriteLine("\n>> Total working Hr of cureent EMployee:- " + TotalEmpHr);
+            return TotalEmpHr;
         }
 
-        public int EmpWage(string Compnay, int totalEmpHr)
+        public static int TotalWage(int Emp_Rate_Hr)
         {
-            int TotalWage = EmpRatePerHr * totalEmpHr;  //calculating TotalWage
-            return TotalWage;
+            TotalEmpwage = Emp_Rate_Hr * TotalEmpHr;
+            Console.WriteLine("\n>> Total Wage of current Empolyee is :- " + TotalEmpwage);
+
+            return TotalEmpwage;
+
         }
-
-
-
-
     }
 }
