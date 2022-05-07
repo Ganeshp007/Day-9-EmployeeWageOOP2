@@ -9,28 +9,37 @@ namespace Day_9_EmployeeWageOOP2
     internal class CompanyEmpWageBuilder
     {
 
-        public const int IS_Fulltime = 1;
-
+        public const int IS_FUlltime = 1;
+        public const int EmpRatePerHr = 20;
         public void EmpCheck(string Company)
         {
+            int emphr = 0;
+
 
             Random r = new Random();
             int empcheck = r.Next(0, 2);
 
             switch (empcheck)
             {
-                case IS_Fulltime:
-                    Console.WriteLine("\nEmployee of " + Company + " is Present and it is Fulltime Employee....");
+                case IS_FUlltime:
+                    emphr = 8;
+                    Console.WriteLine(">> Employee of " + Company + " is Present....\n");
+
                     break;
 
-            
+                 
                 default:
-                    Console.WriteLine("\nEmployee of " + Company + " is Absent....");
+                    emphr = 0;
+                    Console.WriteLine(">> Employee of " + Company + " is Absent....\n");
                     break;
             }
 
+            int Dailywage = EmpRatePerHr * emphr;
 
 
+            Console.WriteLine("Employee Wage of a day to " + Company + " company for current Employee is :- " + Dailywage + "\n");
         }
+
+
     }
 }
